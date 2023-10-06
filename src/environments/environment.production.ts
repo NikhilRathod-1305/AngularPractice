@@ -1,6 +1,7 @@
 export const environment = {
-    production:true,
-    development:false,
-    staging:false,
-    apiUrl:'production-api-url',
+  production: true,
+  development: false,
+  staging: false,
+  apiUrl: 'https://prod.api.com',
+  enableTable: true,
 };

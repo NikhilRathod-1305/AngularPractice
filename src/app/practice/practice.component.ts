@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-practice',
@@ -6,5 +8,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./practice.component.scss']
 })
 export class PracticeComponent {
-
+  enableTable: boolean = environment.enableTable;
 }
