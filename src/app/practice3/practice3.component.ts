@@ -11,7 +11,9 @@ export class Practice3Component{
   a=1;
   b=2;
   imageUrl='assets/images/logo.png'
+  imageUrl2=''
   getName(){
     return this.message;
   }
+  
 }

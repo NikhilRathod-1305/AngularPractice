@@ -12,7 +12,7 @@ import { Practice3Component } from './practice3/practice3.component';
     AppComponent,
     PracticeComponent,
     Practice2Component,
-    Practice3Component
+    Practice3Component,
   ],
   imports: [
     BrowserModule,
