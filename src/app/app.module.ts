@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { PracticeComponent } from './practice/practice.component';
 import { Practice2Component } from './practice2/practice2.component';
 import { Practice3Component } from './practice3/practice3.component';
+import { UserModule } from './user/user.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+
 
 @NgModule({
   declarations: [
@@ -13,12 +18,16 @@ import { Practice3Component } from './practice3/practice3.component';
     PracticeComponent,
     Practice2Component,
     Practice3Component,
+    
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule,
+            AppRoutingModule, 
+            UserModule, 
+            BrowserAnimationsModule,
+             FormsModule,
+            ReactiveFormsModule,
+          ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
