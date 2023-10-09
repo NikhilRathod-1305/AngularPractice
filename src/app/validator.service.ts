@@ -59,4 +59,34 @@ export class ValidatorsService {
       return null;
     };
   }
+   static idValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+      if (!control.value) {
+        return null;
+      }
+
+      const regex = /^[0-9]+$/;
+      if (!regex.test(control.value)) {
+        return { 'invalidId': true };
+      }
+
+      return null;
+    };
+  }
+
+  static dateOfBirthValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: boolean } | null => {
+      if (!control.value) {
+        return null;
+      }
+
+      const selectedDate = new Date(control.value);
+      const currentDate = new Date();
+      if (selectedDate > currentDate) {
+        return { 'invalidDateOfBirth': true };
+      }
+
+      return null;
+      };
+  }
 }
