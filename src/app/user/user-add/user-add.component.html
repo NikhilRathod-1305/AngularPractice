@@ -1,19 +1,13 @@
 <h2>User Form</h2>
 <div class="formDiv">
-<form [formGroup]="userAdd" (ngSubmit)="onSubmit()" class="userForm">
+<form [formGroup]="userAdd"(ngSubmit)="onSubmit()"  class="userForm">
   <mat-form-field>
-    <input matInput placeholder="UserName" formControlName="userName">
+    <input matInput placeholder="userName" formControlName="userName">
     <mat-error *ngIf="userAdd.get('userName').hasError('required')">Username is required</mat-error>
     <mat-error *ngIf="userAdd.get('userName').hasError('invalidName')">Invalid username</mat-error>
   </mat-form-field>
 
-  <mat-form-field>
-    <input matInput placeholder="userId" formControlName="userId">
-     <mat-error *ngIf="userAdd.get('id').hasError('required')">ID is required</mat-error>
-  <mat-error *ngIf="userAdd.get('id').hasError('invalidId')">Invalid ID</mat-error>
-  </mat-form-field>
-
-  <mat-form-field>
+  <mat-form-field >
     <input matInput placeholder="Email" formControlName="email">
     <mat-error *ngIf="userAdd.get('email').hasError('required')">Email is required</mat-error>
     <mat-error *ngIf="userAdd.get('email').hasError('email')">Invalid email</mat-error>
@@ -40,17 +34,7 @@
   <mat-datepicker #picker></mat-datepicker>
   <mat-error *ngIf="userAdd.get('dateOfBirth').hasError('required')">Date of Birth is required</mat-error>
   <mat-error *ngIf="userAdd.get('dateOfBirth').hasError('invalidDateOfBirth')">Invalid Date of Birth</mat-error>
-</mat-form-field>
- <mat-checkbox formControlName="subscription">Subscribe</mat-checkbox>
- 
- 
-  <div>
-    <mat-radio-group formControlName="option">
-      <mat-radio-button value="option1">option 1</mat-radio-button>
-      <mat-radio-button value="option2">option 2</mat-radio-button>
-    </mat-radio-group>
-  </div>
-  
+</mat-form-field>  
 
   <button mat-raised-button color="primary" type="submit">Submit</button>
 </form>

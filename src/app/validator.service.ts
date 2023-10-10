@@ -1,92 +1,44 @@
-import { Injectable } from '@angular/core';
-import { AbstractControl, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 
-@Injectable({
-  providedIn: 'root',
-})
-export class ValidatorsService {
-  constructor() {}
+export class ValidationService {
+  static invalidName(control: AbstractControl): ValidationErrors | null {
+    const regex = /^[a-zA-Z0-9_]+$/; // Define your own pattern for a valid username
+    const valid = regex.test(control.value);
 
-  static nameValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-      if (!control.value) {
-        return null;
-      }
-
-      const trimmedValue = control.value.trim();
-
-      if (!trimmedValue) {
-        return { invalidName: true };
-      }
-
-      const regex = /^[a-zA-Z ]+$/;
-      if (!regex.test(trimmedValue)) {
-        return { invalidName: true };
-      }
-
-      control.setValue(trimmedValue);
-
-      return null;
-    };
+    return valid ? null : { invalidName: true };
   }
 
-  static emailValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-      if (!control.value) {
-        return null;
-      }
+  static invalidEmail(control: AbstractControl): ValidationErrors | null {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; // Define your own email validation pattern
+    const valid = regex.test(control.value);
 
-      const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
-      if (!regex.test(control.value)) {
-        return { invalidEmail: true };
-      }
-
-      return null;
-    };
+    return valid ? null : { invalidEmail: true };
   }
 
-  static phoneValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-      if (!control.value) {
-        return null;
-      }
+  static invalidPhone(control: AbstractControl): ValidationErrors | null {
+    const regex = /^[0-9]{10}$/; // Define your own pattern for a valid phone number
+    const valid = regex.test(control.value);
 
-      const regex = /^[0-9]{10}$/;
-      if (!regex.test(control.value)) {
-        return { invalidPhone: true };
-      }
-
-      return null;
-    };
-  }
-   static idValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-      if (!control.value) {
-        return null;
-      }
-
-      const regex = /^[0-9]+$/;
-      if (!regex.test(control.value)) {
-        return { 'invalidId': true };
-      }
-
-      return null;
-    };
+    return valid ? null : { invalidPhone: true };
   }
 
-  static dateOfBirthValidator(): ValidatorFn {
-    return (control: AbstractControl): { [key: string]: boolean } | null => {
-      if (!control.value) {
-        return null;
-      }
+  static invalidDateOfBirth(control: AbstractControl): ValidationErrors | null {
+    // Define your own date of birth validation logic here (e.g., age restrictions)
+    const dateOfBirth = new Date(control.value);
+    const currentDate = new Date();
+    const minDate = new Date('1900-01-01'); // Define your minimum date of birth
+    const maxDate = new Date('2030-01-01'); // Define your maximum date of birth
 
-      const selectedDate = new Date(control.value);
-      const currentDate = new Date();
-      if (selectedDate > currentDate) {
-        return { 'invalidDateOfBirth': true };
-      }
+    if (isNaN(dateOfBirth.getTime())) {
+      // Invalid date
+      return { invalidDateOfBirth: true };
+    }
 
-      return null;
-      };
+    if (dateOfBirth < minDate || dateOfBirth > maxDate) {
+      // Date is outside the allowed range
+      return { invalidDateOfBirth: true };
+    }
+
+    return null;
   }
 }

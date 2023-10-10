@@ -1,1 +1,14 @@
-<p><a router-outlet></a>user-list works!</p>
+<div class="user-card-container">
+  <div *ngFor="let user of users" class="user-card" (click)="showUserDetails(user)">
+    <div class="card-content">
+      <strong>ID:</strong> {{ user.id }}
+    </div>
+    <div class="card-content">
+      <strong>Name:</strong> {{ user.userName }}
+    </div>
+  </div>
+</div>
+<div class="user-details">
+  <!-- User details content here -->
+  <button (click)="goBack()">Back</button>
+</div>

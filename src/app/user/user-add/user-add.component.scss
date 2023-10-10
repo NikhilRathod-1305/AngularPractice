@@ -1,24 +1,24 @@
 .userForm {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%; 
 }
-  
-mat-form-field {
-    width: 100%;
-    max-width: 500px;
-  }
 
-  .formDiv{
-    margin-top: 20px;
-  }
-  h2{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0px;
-  }
-  
+mat-form-field{
+  width: 100%;
+  max-width: 500px;
+}
+
+.formDiv{
+  margin-top: 20px;
+}
+h2{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0px;
+}
+

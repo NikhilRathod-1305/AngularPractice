@@ -4,12 +4,15 @@ import { UserListComponent } from './user/user-list/user-list.component';
 import { UserComponent } from './user/user.component';
 import { UserAddComponent } from './user/user-add/user-add.component';
 import { UserEditComponent } from './user/user-edit/user-edit.component';
+import { UserDetailsComponent } from './user/user-details/user-details.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/user-add', pathMatch: 'full' },
   { path :'user',component:UserComponent},
    { path:'user/user-add',component:UserAddComponent},
    { path:'user/user-list',component:UserListComponent},
-    { path:'user/user-edit',component:UserEditComponent}, 
+    {path: 'user/:id', component: UserDetailsComponent},
+    
 ]
 
 @NgModule({
