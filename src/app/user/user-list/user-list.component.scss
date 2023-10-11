@@ -17,7 +17,7 @@
   transition: background-color 0.3s ease;
   display: flex;
   flex-direction: column; /* Display cards vertically */
-  align-items: center; /* Center card content */
+  align-items: start; /* Center card content */
 
   &:hover {
     background-color: #e0e0e0;
@@ -38,7 +38,7 @@
 
     button {
       margin: 5px 5px;
-      background-color: #007bff;
+      background-color: #673ab7;
       color: #fff;
       border: none;
       border-radius: 5px;
@@ -47,7 +47,7 @@
       transition: background-color 0.3s ease;
 
       &:hover {
-        background-color: #0056b3;
+        background-color: #673ab7;
       }
     }
   }
@@ -59,12 +59,13 @@
 
 /* Styling for the user details container */
 .user-details {
-  text-align: center;
+  text-align: start;
+  margin-left: 20px;
   margin-top: 20px;
 
   button {
     padding: 5px 10px;
-    background-color: #007bff;
+    background-color:#673ab7;
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -72,7 +73,7 @@
     transition: background-color 0.3s ease;
 
     &:hover {
-      background-color: #0056b3;
+      background-color: #673ab7;
     }
   }
 }

@@ -66,5 +66,10 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['user/user-add']); // Replace with your actual route
     // window.history.back();
   }
+
+  editUser(id: number) {
+    // Navigate to the user-edit page with the user's ID as a parameter
+    this.router.navigate(['/user/user-edit/',id]);
+  }
    
 }

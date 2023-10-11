@@ -15,11 +15,27 @@
   ],
   "Users": [
     {
-      "userName": "saurab",
-      "email": "saura@gmail.com",
+      "userName": "nikhil",
+      "email": "nikhil@gmail.com",
       "gender": "male",
-      "phoneNumber": "8765432190",
-      "dateOfBirth": "2023-10-23T18:30:00.000Z",
+      "phoneNumber": "6636631732",
+      "dateOfBirth": "2023-10-28T18:30:00.000Z",
+      "id": 1
+    },
+    {
+      "userName": "saurab",
+      "email": "saurab@gmail.com",
+      "gender": "male",
+      "phoneNumber": "8907189283",
+      "dateOfBirth": "2023-10-25T18:30:00.000Z",
+      "id": 2
+    },
+    {
+      "userName": "sahana K",
+      "email": "sahana@gmail.co",
+      "gender": "female",
+      "phoneNumber": "6756746763",
+      "dateOfBirth": "2024-10-04T18:30:00.000Z",
       "id": 3
     }
   ],

@@ -1,6 +1,5 @@
 <div class="user-card-container" >
   <div *ngFor="let item of users;i:index"  class="user-card" (mouseenter)="item.hovered = true" (mouseleave)="item.hovered = false">
-    <!-- class="user-card" (click)="showUserDetails(user) -->
     <div class="card-content">
       <strong>ID:</strong> {{ item.id }}
     </div>
@@ -20,7 +19,7 @@
         <strong>date of birth:</strong> {{ item.dateOfBirth }}
       </div>
       <div class="card-buttons" [ngClass]="{ 'visible': item.hovered }">
-        <button (click)="editUser(i)">Edit</button>
+        <button (click)="editUser(item.id)">Edit</button>
         <button (click)="DeleteUserByID(item.id)">Delete</button>
       </div>
   </div>
