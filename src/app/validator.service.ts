@@ -3,7 +3,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 export class ValidationService {
   validateName: ValidatorFn;
   static invalidName(control: AbstractControl): ValidationErrors | null {
-    const regex = /^[a-zA-Z0-9_]+$/; 
+    const regex = /^[a-zA-Z ]+$/; 
     const valid = regex.test(control.value);
 
     return valid ? null : { invalidName: true };

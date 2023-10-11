@@ -16,7 +16,7 @@
         <strong>Phone no:</strong> {{ item.phoneNumber }}
       </div>
       <div class="card-content">
-        <strong>date of birth:</strong> {{ item.dateOfBirth }}
+        <strong>date of birth:</strong> {{ item.dateOfBirth | dateFormat: 'ddMMyyyy' }}
       </div>
       <div class="card-buttons" [ngClass]="{ 'visible': item.hovered }">
         <button (click)="editUser(item.id)">Edit</button>

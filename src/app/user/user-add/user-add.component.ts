@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from './../../user.service';
 import { ValidationService } from './../../validator.service';
 import { CommonService } from 'src/app/common.service';
 
@@ -13,12 +12,12 @@ import { CommonService } from 'src/app/common.service';
 })
 export class UserAddComponent implements OnInit {
   userAdd: FormGroup;
-  userId: number = 0; // Change variable name to userId
+  userId: number = 0;
   maxDate: Date;
 
   constructor(
     private fb: FormBuilder,
-    private service: CommonService, // Correct service name to userService
+    private service: CommonService, 
     private router: Router
   ) {}
 
@@ -33,23 +32,13 @@ export class UserAddComponent implements OnInit {
   }
 
   onSubmit() {
-  //  if (this.userAdd.valid) {
-  //     const formData = this.userAdd.value;
-  //     // Add the user using the UserService
-  //     this.userService.addUser(formData);
-  //     console.log(formData);
-  //     // After successful submission, navigate to the user list
-  //     this.router.navigate(['user/user-list']);
-  //   } else {
-  //     // Handle form validation errors
-  //   }
-
   console.log(this.userAdd.value);
+  if(this.userAdd.valid){
   this.service.AddUpdateUser(this.userAdd.value).subscribe(data=>{
     alert("Added");
     this.userAdd.reset();
     this.router.navigate(['user/user-list']);
     console.log(data);
-  })
-}
+    })
+  }}
 }

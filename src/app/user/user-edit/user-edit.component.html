@@ -3,11 +3,16 @@
 <form [formGroup]="userEdit" (ngSubmit)="UpdateForm()" class="userForm">
   <mat-form-field>
     <input matInput placeholder="userName" formControlName="userName">
-    </mat-form-field>
+    <mat-error *ngIf="userEdit.get('userName').hasError('required')">Username is required</mat-error>
+    <mat-error *ngIf="userEdit.get('userName').hasError('invalidName')">Invalid username</mat-error>  
+  </mat-form-field>
 
   <mat-form-field >
     <input matInput placeholder="Email" formControlName="email">
-    </mat-form-field>
+    <mat-error *ngIf="userEdit.get('email').hasError('required')">Email is required</mat-error>
+    <mat-error *ngIf="userEdit.get('email').hasError('email')">Invalid email</mat-error>
+    <mat-error *ngIf="userEdit.get('email').hasError('invalidEmail')">Invalid email</mat-error>  
+  </mat-form-field>
 
   <mat-form-field>
     <mat-label>Gender</mat-label>
@@ -19,13 +24,17 @@
 
   <mat-form-field>
     <input matInput placeholder="Phone Number" formControlName="phoneNumber">
-     </mat-form-field>
+    <mat-error *ngIf="userEdit.get('phoneNumber').hasError('required')">phone number is required</mat-error>
+    <mat-error *ngIf="userEdit.get('phoneNumber').hasError('invalidPhone')">Invalid phone number</mat-error>   
+  </mat-form-field>
 
  <mat-form-field>
-  <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth">
+  <input matInput [matDatepicker]="picker"   placeholder="Date of Birth" formControlName="dateOfBirth">
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
- </mat-form-field>  
+  <mat-error *ngIf="userEdit.get('dateOfBirth').hasError('required')">Date of Birth is required</mat-error>
+  <mat-error *ngIf="userEdit.get('dateOfBirth').hasError('invalidDateOfBirth')">Invalid Date of Birth</mat-error>
+</mat-form-field>  
 
   <button mat-raised-button color="primary" type="submit">Update</button>
 </form>

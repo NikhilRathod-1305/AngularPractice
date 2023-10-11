@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from './../../user.service'; // Import your service
+import { UserInterface } from './../../user-interface';
 import { Router } from '@angular/router';
 import { CommonService } from 'src/app/common.service';
+
 
 @Component({
   selector: 'app-user-list',

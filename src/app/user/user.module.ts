@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DateFormatPipe } from './DateFormatPipe'; 
 
 @NgModule({
   declarations: [
@@ -20,6 +21,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
     UserAddComponent,
     UserEditComponent,
     UserComponent,
+    DateFormatPipe,
+
   ],
   exports:[
     UserAddComponent,

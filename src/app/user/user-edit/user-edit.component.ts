@@ -28,21 +28,26 @@ export class UserEditComponent  implements OnInit{
     private router1: Router, 
     private service:CommonService
     ) {}
+    
+  
 
-  ngOnInit(): void {
-    console.log(this.router.snapshot.params.id)
-    this.service.GetCurrentData(this.router.snapshot.params.id).subscribe((result)=>{
-      this.userEdit=new FormGroup({
-        userName: new FormControl(result['userName']),
-          email: new FormControl(result['email']),
-          gender: new FormControl(result['gender']),
-          phoneNumber: new FormControl(result['phoneNumber']),
-          dateOfBirth:new FormControl(result['dateOfBirth']),
-      })
-    })
-  }
+    ngOnInit(): void {
+      this.userEdit = this.fb.group({
+        userName: ['', [Validators.required, ValidationService.invalidName]],
+        email: ['', [Validators.required, ValidationService.invalidEmail]],
+        gender: [''],
+        phoneNumber: ['', [Validators.required, ValidationService.invalidPhone]],
+        dateOfBirth: ['', [Validators.required, ValidationService.invalidDateOfBirth]],
+      });
+  
+      // Fetch the user data and set it in the form
+      this.service.GetCurrentData(this.router.snapshot.params.id).subscribe((result) => {
+        this.userEdit.patchValue(result); // Set the user data in the form
+      });
+    }
 
   UpdateForm(){
+    if(this.userEdit.valid){
     this.service.UpdateForm(this.router.snapshot.params.id,this.userEdit.value).subscribe((result)=>{
       console.log(result,"data updated successfull");
       alert("User Updated ");
@@ -51,5 +56,5 @@ export class UserEditComponent  implements OnInit{
         this.router1.navigate(['user/user-list']);
       }, 100);
     })
-  }
+  }}
 }
