@@ -1,11 +1,9 @@
-/* Styling for the user-card-container */
 .user-card-container {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
 }
 
-/* Styling for individual user cards */
 .user-card {
   width: 200px;
   margin: 10px;
@@ -16,8 +14,8 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: flex;
-  flex-direction: column; /* Display cards vertically */
-  align-items: start; /* Center card content */
+  flex-direction: column; 
+  align-items: flex-start; 
 
   &:hover {
     background-color: #e0e0e0;
@@ -33,8 +31,8 @@
 
   .card-buttons {
     display: none;
-    margin-top: auto; /* Push buttons to the bottom */
-    align-self: center; /* Center buttons horizontally */
+    margin-top: auto; 
+    align-self: center; 
 
     button {
       margin: 5px 5px;
@@ -53,11 +51,10 @@
   }
 
   &:hover .card-buttons {
-    display: block; /* Show buttons on hover */
+    display: block; 
   }
 }
 
-/* Styling for the user details container */
 .user-details {
   text-align: start;
   margin-left: 20px;
@@ -78,9 +75,8 @@
   }
 }
 
-/* Media query for responsive layout */
 @media screen and (max-width: 600px) {
   .user-card-container {
-    flex-direction: column; /* Stack cards vertically on smaller screens */
+    flex-direction: column; 
   }
 }

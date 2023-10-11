@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from 'src/app/common.service';
+import { ValidationService } from './../../validator.service';
+
 
 @Component({
   selector: 'app-user-edit',
@@ -9,7 +11,10 @@ import { CommonService } from 'src/app/common.service';
   styleUrls: ['./user-edit.component.scss']
 })
 export class UserEditComponent  implements OnInit{
-  alert:boolean =false;
+  userId: number = 0;
+  maxDate: Date;
+
+  alert:boolean =false; 
   userEdit=new FormGroup({
     userName: new FormControl(''),
       email: new FormControl(''),
