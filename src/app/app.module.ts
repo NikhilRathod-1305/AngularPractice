@@ -9,6 +9,8 @@ import { Practice3Component } from './practice3/practice3.component';
 import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 
 
@@ -26,6 +28,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
             BrowserAnimationsModule,
              FormsModule,
             ReactiveFormsModule,
+            HttpClientModule
           ],
   providers: [],
   bootstrap: [AppComponent],

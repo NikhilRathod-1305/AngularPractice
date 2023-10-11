@@ -1,14 +1,31 @@
-<div class="user-card-container">
-  <div *ngFor="let user of users" class="user-card" (click)="showUserDetails(user)">
+<div class="user-card-container" >
+  <div *ngFor="let item of users;i:index"  class="user-card" (mouseenter)="item.hovered = true" (mouseleave)="item.hovered = false">
+    <!-- class="user-card" (click)="showUserDetails(user) -->
     <div class="card-content">
-      <strong>ID:</strong> {{ user.id }}
+      <strong>ID:</strong> {{ item.id }}
     </div>
     <div class="card-content">
-      <strong>Name:</strong> {{ user.userName }}
+      <strong>Name:</strong> {{ item.userName }}
     </div>
+    <div class="card-content">
+        <strong>email:</strong> {{ item.email }}
+      </div>
+      <div class="card-content">
+        <strong>gender:</strong> {{ item.gender }}
+      </div>
+      <div class="card-content">
+        <strong>Phone no:</strong> {{ item.phoneNumber }}
+      </div>
+      <div class="card-content">
+        <strong>date of birth:</strong> {{ item.dateOfBirth }}
+      </div>
+      <div class="card-buttons" [ngClass]="{ 'visible': item.hovered }">
+        <button (click)="editUser(i)">Edit</button>
+        <button (click)="DeleteUserByID(item.id)">Delete</button>
+      </div>
   </div>
 </div>
-<div class="user-details">
+<div class="user-details"> 
   <!-- User details content here -->
-  <button (click)="goBack()">Add User</button>
+     <button (click)="goBack()">Add User</button>
 </div>

@@ -1,0 +1,29 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "Users": [
+    {
+      "userName": "saurab",
+      "email": "saura@gmail.com",
+      "gender": "male",
+      "phoneNumber": "8765432190",
+      "dateOfBirth": "2023-10-23T18:30:00.000Z",
+      "id": 3
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
