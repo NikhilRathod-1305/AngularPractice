@@ -45,9 +45,9 @@ export class UserListComponent implements OnInit {
       })
     }
 
-  goBack() {
-    this.router.navigate(['user/user-add']);
-  }
+  // goBack() {
+  //   this.router.navigate(['user/user-add']);
+  // }
 
   editUser(id: number) {
     this.router.navigate(['/user/user-edit/',id]);
