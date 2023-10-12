@@ -10,8 +10,8 @@ import { UserModule } from './user/user.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
-
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
 
 
 @NgModule({
@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     PracticeComponent,
     Practice2Component,
     Practice3Component,
+    
   ],
   imports: [BrowserModule,
             AppRoutingModule, 
@@ -27,7 +28,10 @@ import { HttpClientModule } from '@angular/common/http';
             BrowserAnimationsModule,
              FormsModule,
             ReactiveFormsModule,
-            HttpClientModule
+            HttpClientModule,
+            MatToolbarModule,
+            AppRoutingModule, 
+            MatButtonModule,
           ],
   providers: [],
   bootstrap: [AppComponent],

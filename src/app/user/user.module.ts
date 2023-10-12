@@ -16,6 +16,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateFormatPipe } from './DateFormatPipe'; 
 import { ForbiddenNumbersDirective } from './../forbidden-numbers.directive';
 import { ForbiddenAlphabetsDirective } from './../forbidden-alphabets.directive';
+import { TopNavComponent } from './top-nav/top-nav.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { RouterLink } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { ForbiddenAlphabetsDirective } from './../forbidden-alphabets.directive'
     DateFormatPipe,
     ForbiddenNumbersDirective,
     ForbiddenAlphabetsDirective,
+    TopNavComponent
 
   ],
   exports:[
@@ -44,7 +48,9 @@ import { ForbiddenAlphabetsDirective } from './../forbidden-alphabets.directive'
     MatButtonModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    
+    MatButtonModule,
+    MatToolbarModule,
+    RouterLink
   ]
 })
 export class UserModule { }
