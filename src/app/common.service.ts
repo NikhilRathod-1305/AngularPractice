@@ -10,7 +10,6 @@ export class CommonService {
   constructor(private http:HttpClient) { }
 
   AddUpdateUser(User:any):Observable<any>{
-    debugger
     return this.http.post(this.url+"Users",User);
   }
 

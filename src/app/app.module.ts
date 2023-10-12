@@ -20,7 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     PracticeComponent,
     Practice2Component,
     Practice3Component,
-    
   ],
   imports: [BrowserModule,
             AppRoutingModule, 

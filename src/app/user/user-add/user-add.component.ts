@@ -27,7 +27,7 @@ export class UserAddComponent implements OnInit {
       email: ['', [Validators.required, ValidationService.invalidEmail]],
       gender: [''],
       phoneNumber: ['', [Validators.required, ValidationService.invalidPhone]],
-      dateOfBirth: ['', [Validators.required, ValidationService.invalidDateOfBirth]],
+      dateOfBirth: ['', Validators.required, ],
     });
   }
 

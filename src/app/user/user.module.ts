@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { DateFormatPipe } from './DateFormatPipe'; 
+import { ForbiddenNumbersDirective } from './../forbidden-numbers.directive';
+import { ForbiddenAlphabetsDirective } from './../forbidden-alphabets.directive';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { DateFormatPipe } from './DateFormatPipe';
     UserEditComponent,
     UserComponent,
     DateFormatPipe,
+    ForbiddenNumbersDirective,
+    ForbiddenAlphabetsDirective,
 
   ],
   exports:[
