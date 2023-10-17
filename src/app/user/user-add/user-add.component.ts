@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ValidationService } from './../../validator.service';
-import { CommonService } from 'src/app/common.service';
+import { ValidationService } from '@src/app/shared_services/validator.service';
+import { CommonService } from '@src/app/shared_services/common.service';
 
 
 @Component({
@@ -37,7 +37,7 @@ export class UserAddComponent implements OnInit {
   this.service.AddUpdateUser(this.userAdd.value).subscribe(data=>{
     alert("Added");
     this.userAdd.reset();
-    this.router.navigate(['user/user-list']);
+    this.router.navigate(['user']);
     console.log(data);
     })
   }}

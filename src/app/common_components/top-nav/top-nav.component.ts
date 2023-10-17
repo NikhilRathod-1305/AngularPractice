@@ -15,6 +15,6 @@ export class TopNavComponent {
   }
   
   navigateToUserList() {
-    this.router.navigate(['user/user-list']);
+    this.router.navigate(['user']);
   }
 }

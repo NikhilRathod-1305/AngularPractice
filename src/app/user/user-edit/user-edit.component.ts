@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { CommonService } from 'src/app/common.service';
-import { ValidationService } from './../../validator.service';
+import { CommonService } from '@src/app/shared_services/common.service';
+import { ValidationService } from '@src/app/shared_services/validator.service';
 
 
 @Component({
@@ -53,7 +53,7 @@ export class UserEditComponent  implements OnInit{
       alert("User Updated ");
       setTimeout(() => {
         // Reload the page
-        this.router1.navigate(['user/user-list']);
+        this.router1.navigate(['user']);
       }, 100);
     })
   }}
