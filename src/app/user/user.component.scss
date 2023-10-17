@@ -3,10 +3,27 @@
     flex-wrap: wrap;
     gap: 20px;
   }
+
+  .noUsers{
+    p{
+      margin-top:2%;
+      margin-left: 25%;
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-size: 50px;
+    }
+    button{
+      margin-top: 2%;
+      margin-left: 42%;
+      padding: 30px;
+      font-size: 18px;
+    }
+  }
   
   .user-card {
     width: 200px;
-    margin: 10px;
+    left:5px;
+    margin-left: 10px;
+    margin-top: 10px;
     padding: 10px;
     padding-bottom: 40px;
     background-color: #f0f0f0;
@@ -17,7 +34,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    position: relative; // Add this line
+    position: relative; 
   }
   
   .card-content {
@@ -30,9 +47,9 @@
   
   .card-buttons {
     display: none;
-    position: absolute; // Position the buttons absolutely
-    bottom: 10px; // Adjust the position as needed
-    left: 10px; // Adjust the position as needed
+    position: absolute; 
+    bottom: 10px; 
+    left: 50px; 
   
     button {
       margin: 5px 5px;

@@ -1,0 +1,16 @@
+<app-top-nav></app-top-nav>
+<mat-card class="user-card">
+    <mat-card-header>
+      <mat-card-title>User Details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <p><strong>ID:</strong> {{ user.id }}</p>
+      <p><strong>Name:</strong> {{ user.userName }}</p>
+      <p><strong>Email:</strong> {{ user.email }}</p>
+      <p><strong>Gender:</strong> {{ user.gender }}</p>
+      <p><strong>Phone Number:</strong> {{ user.phoneNumber }}</p>
+      <p><strong>Date of Birth:</strong> {{ user.dateOfBirth | date: 'MM/dd/yyyy' }}</p>
+      <!-- Include other user details as needed -->
+    </mat-card-content>
+  </mat-card>
+  

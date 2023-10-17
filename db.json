@@ -13,7 +13,48 @@
       "postId": 1
     }
   ],
-  "Users": [],
+  "Users": [
+    {
+      "userName": "saurab",
+      "email": "saurab@gmail.com",
+      "gender": "male",
+      "phoneNumber": "7676318516",
+      "dateOfBirth": "2023-09-30T18:30:00.000Z",
+      "id": 2
+    },
+    {
+      "userName": "saurab",
+      "email": "saurab@gmail.com",
+      "gender": "male",
+      "phoneNumber": "7676318516",
+      "dateOfBirth": "2023-09-30T18:30:00.000Z",
+      "id": 5
+    },
+    {
+      "userName": "nikhil",
+      "email": "nikhilrathod1305@gmail.com",
+      "gender": "male",
+      "phoneNumber": "6366318338",
+      "dateOfBirth": "2023-09-30T18:30:00.000Z",
+      "id": 7
+    },
+    {
+      "userName": "nikhil",
+      "email": "nikhilrathod1305@gmail.com",
+      "gender": "male",
+      "phoneNumber": "1234567890",
+      "dateOfBirth": "2023-10-25T18:30:00.000Z",
+      "id": 8
+    },
+    {
+      "userName": "nikhil",
+      "email": "nikhilrathod1305@gmail.com",
+      "gender": "male",
+      "phoneNumber": "1234567890",
+      "dateOfBirth": "2023-10-30T18:30:00.000Z",
+      "id": 9
+    }
+  ],
   "profile": {
     "name": "typicode"
   }

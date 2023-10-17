@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ValidationService } from '@src/app/shared_services/validator.service';
 import { CommonService } from '@src/app/shared_services/common.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -27,7 +28,7 @@ export class UserAddComponent implements OnInit {
       email: ['', [Validators.required, ValidationService.invalidEmail]],
       gender: [''],
       phoneNumber: ['', [Validators.required, ValidationService.invalidPhone]],
-      dateOfBirth: ['', Validators.required, ],
+      dateOfBirth: ['', Validators.required],
       // skillLevel: [''],
       // hobbies: this.fb.array([]), // Add this for hobbies
     });
@@ -37,8 +38,14 @@ export class UserAddComponent implements OnInit {
   console.log(this.userAdd.value);
   if(this.userAdd.valid){
   this.service.AddUpdateUser(this.userAdd.value).subscribe(data=>{
-    alert("Added");
-    this.userAdd.reset();
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'User Added',
+      showConfirmButton: false,
+      timer: 1600
+    });
+        this.userAdd.reset();
     this.router.navigate(['user']);
     console.log(data);
     })

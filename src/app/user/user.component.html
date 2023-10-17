@@ -1,6 +1,11 @@
 <app-top-nav></app-top-nav>
+<div class="noUsers" *ngIf="noUsersPresent; else usersList">
+  <p>No users are currently added.</p>
+  <button mat-raised-button color="primary" (click)="navigateToAddUser()">Add User</button>
+</div>
+<ng-template #usersList>
 <div class="user-card-container">
-  <div *ngFor="let item of users; let i = index" class="user-card" (mouseenter)="item.hovered = true" (mouseleave)="item.hovered = false">
+  <div *ngFor="let item of users; let i = index" class="user-card" (mouseenter)="item.hovered = true" (mouseleave)="item.hovered = false" (click)="showUserDetails(item.id)">
     <div class="card-content">
       <strong>ID:</strong> {{ item.id }}
     </div>
@@ -21,10 +26,12 @@
     </div>
     <div class="card-buttons" [ngClass]="{ 'visible': item.hovered }">
       <button (click)="editUser(item.id)">Edit</button>
-      <button (click)="Popup(item.id)">Delete</button>
+      <button (click)="Popup(item.id);$event.stopPropagation()">Delete</button>
     </div>
   </div>
 </div>
+</ng-template>
+
 
 
 

@@ -18,7 +18,8 @@ import { ForbiddenNumbersDirective } from '@src/app/shared_directives/forbidden-
 import { TopNavComponent } from '@src/app/common_components/top-nav/top-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
-// import { CheckboxControlDirective } from './../checkbox-control.directive';
+import { UserDetailsComponent } from './user-details/user-details.component';
+import { MatCardModule } from '@angular/material/card';
 
 
 @NgModule({
@@ -30,7 +31,7 @@ import { RouterLink } from '@angular/router';
     ForbiddenNumbersDirective,
     ForbiddenAlphabetsDirective,
     TopNavComponent,
-    // CheckboxControlDirective
+    UserDetailsComponent,
 
   ],
   exports:[
@@ -50,7 +51,8 @@ import { RouterLink } from '@angular/router';
     MatDatepickerModule,
     MatButtonModule,
     MatToolbarModule,
-    RouterLink
+    RouterLink,
+    MatCardModule
   ]
 })
 export class UserModule { }

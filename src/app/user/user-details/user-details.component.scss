@@ -1,0 +1,29 @@
+.user-card {
+    width: 500px;
+    height: 500px;
+    margin: 5% 30%;
+    padding: 16px;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.655);
+  }
+  
+  mat-card{
+    mat-card-header{
+        
+  mat-card-title {
+    font-size: 40px;
+    font-weight: bold;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: blueviolet;
+    margin-left: 100px ;
+  }
+}
+}
+  
+  mat-card-content p {
+    padding-top: 10px;
+    margin: 30px 20px;
+    font-size: 23px;
+  }
+  
+  

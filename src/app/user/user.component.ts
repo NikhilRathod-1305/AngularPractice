@@ -11,6 +11,8 @@ import Swal from 'sweetalert2';
 })
 export class UserComponent implements OnInit {
   users: any;
+  selectedUser: any;
+  noUsersPresent: boolean = false;
   showOptions = false;
 
   edit() {
@@ -29,18 +31,27 @@ export class UserComponent implements OnInit {
     this.GetAllUsers();
     }
 
+    showUserDetails(id: number) {
+      this.router.navigate(['user/',id ]);
+    }    
+
     GetAllUsers(){
       this.service.GetAllUsers().subscribe(data=>{
         console.log('users',data);
         this.users = data;
+        this.noUsersPresent = this.users.length === 0;
     })
+    }
+
+    navigateToAddUser(){
+      this.router.navigate(['user/user-add'])
     }
   
 
     Popup(ID:any){
       Swal.fire({
         title: 'Are you sure?',
-        text: "You won't be able to revert this!",
+        text: "You want to delete the user with ID:"+ ID,
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -57,7 +68,7 @@ export class UserComponent implements OnInit {
       this.service.DeleteUserbyID(ID).subscribe(data=>{
         Swal.fire(
           'Deleted!',
-          'Your file has been deleted.',
+          'User with ID:'+ID+' is deleted',
           'success'
         ).then(() => { setTimeout(() => {
           window.location.reload();
