@@ -28,6 +28,8 @@ export class UserAddComponent implements OnInit {
       gender: [''],
       phoneNumber: ['', [Validators.required, ValidationService.invalidPhone]],
       dateOfBirth: ['', Validators.required, ],
+      // skillLevel: [''],
+      // hobbies: this.fb.array([]), // Add this for hobbies
     });
   }
 

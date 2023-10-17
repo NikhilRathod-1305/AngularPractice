@@ -5,4 +5,6 @@ export interface UserInterface {
     gender: string;
     dateOfBirth:Date;
     phoneNumber:number;
+    skillLevel: string;
+    hobbies: Array<[]>;
 }

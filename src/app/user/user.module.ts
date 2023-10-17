@@ -18,6 +18,7 @@ import { ForbiddenNumbersDirective } from '@src/app/shared_directives/forbidden-
 import { TopNavComponent } from '@src/app/common_components/top-nav/top-nav.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
+// import { CheckboxControlDirective } from './../checkbox-control.directive';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { RouterLink } from '@angular/router';
     DateFormatPipe,
     ForbiddenNumbersDirective,
     ForbiddenAlphabetsDirective,
-    TopNavComponent
+    TopNavComponent,
+    // CheckboxControlDirective
 
   ],
   exports:[
