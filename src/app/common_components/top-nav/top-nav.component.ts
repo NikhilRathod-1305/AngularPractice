@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./top-nav.component.scss']
 })
 export class TopNavComponent {
+  @Input() title: string;
   constructor(private router: Router) { }
   navigateToUserAdd() {
     this.router.navigate(['user/add']);

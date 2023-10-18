@@ -10,6 +10,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
+  pageTitle:string = "USERS LIST";
   users: any;
   selectedUser: any;
   noUsersPresent: boolean = false;

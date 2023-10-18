@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '@src/app/shared_services/common.service';
 import { ValidationService } from '@src/app/shared_services/validator.service';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -11,6 +12,7 @@ import { ValidationService } from '@src/app/shared_services/validator.service';
   styleUrls: ['./user-edit.component.scss']
 })
 export class UserEditComponent  implements OnInit{
+  pageTitle:string="EDIT USER";
   userId: number = 0;
   maxDate: Date;
 
@@ -55,11 +57,15 @@ export class UserEditComponent  implements OnInit{
     if(this.userEdit.valid){
     this.service.UpdateForm(this.router.snapshot.params.id,this.userEdit.value).subscribe((result)=>{
       console.log(result,"data updated successfull");
-      alert("User Updated ");
-      setTimeout(() => {
-        // Reload the page
+      Swal.fire({
+        position: 'top',
+        icon: 'success',
+        title: 'User Edited',
+        showConfirmButton: false,
+        timer: 1600
+      });
         this.router1.navigate(['user']);
-      }, 100);
-    })
+      });
+    
   }}
 }

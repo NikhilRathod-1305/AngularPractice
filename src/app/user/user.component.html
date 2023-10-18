@@ -1,4 +1,4 @@
-<app-top-nav></app-top-nav>
+<app-top-nav [title]="pageTitle"></app-top-nav>
 <div class="noUsers" *ngIf="noUsersPresent; else usersList">
   <p>No users are currently added.</p>
   <button mat-raised-button color="primary" (click)="navigateToAddUser()">Add User</button>
@@ -10,7 +10,7 @@
       <strong>ID:</strong> {{ item.id }}
     </div>
     <div class="card-content">
-      <strong>Name:</strong> {{ item.userName }}
+      <strong>Name:</strong>  {{ item.userName }}
     </div>
     <div class="card-content">
       <strong>email:</strong> {{ item.email }}

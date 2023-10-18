@@ -13,7 +13,8 @@ import { max } from 'rxjs';
   styleUrls: ['./user-add.component.scss'],
 })
 export class UserAddComponent implements OnInit {
-  userAdd: FormGroup;
+  pageTitle: string = 'ADD USER';
+    userAdd: FormGroup;
   userId: number = 0;
   maxDate: Date;
   isFormEmpty: boolean = true;

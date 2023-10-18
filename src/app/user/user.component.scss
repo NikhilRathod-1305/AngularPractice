@@ -38,11 +38,17 @@
   
   .card-content {
     margin-bottom: 10px;
-  
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
     strong {
       font-weight: bold;
     }
+    
   }
+
+  
   
   .card-buttons {
     display: none;

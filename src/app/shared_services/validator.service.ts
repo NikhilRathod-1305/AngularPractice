@@ -4,12 +4,12 @@ export class ValidationService {
   static invalidName(control: AbstractControl): ValidationErrors | null {
     let trimmedValue = control.value ? control.value.replace(/[^A-Za-z\s]/g, '') : '';
     
-    if (trimmedValue.length > 30) {
-      trimmedValue = trimmedValue.substring(0, 30);
+    if (trimmedValue.length > 25) {
+      trimmedValue = trimmedValue.substring(0, 25);
       control.setValue(trimmedValue);
     }
   
-    const regex = /^[a-zA-Z\s]{1,30}$/; // Allow 1 to 30 letters and spaces
+    const regex = /^[a-zA-Z\s]{1,25}$/; // Allow 1 to 30 letters and spaces
     const valid = regex.test(trimmedValue);
   
     if (valid) {

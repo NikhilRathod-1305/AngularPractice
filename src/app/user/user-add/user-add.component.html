@@ -1,7 +1,7 @@
 <div>
   <router-outlet></router-outlet>
   </div>
-  <app-top-nav></app-top-nav>
+  <app-top-nav [title]="pageTitle"></app-top-nav>
 <div class="formDiv">
 <form [formGroup]="userAdd"(ngSubmit)="onSubmit()"  class="userForm">
   <mat-form-field>

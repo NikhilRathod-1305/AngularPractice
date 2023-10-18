@@ -9,6 +9,7 @@ import { CommonService } from '@src/app/shared_services/common.service';
   styleUrls: ['./user-details.component.scss']
 })
 export class UserDetailsComponent {
+  pageTitle:string = "USER'S INFORMATION";
   id: number = 0;
   user:any;
   userDetails={
