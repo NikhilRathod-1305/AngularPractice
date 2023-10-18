@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 export class TopNavComponent {
   constructor(private router: Router) { }
   navigateToUserAdd() {
-    this.router.navigate(['user/user-add']);
+    this.router.navigate(['user/add']);
   }
   
   navigateToUserList() {

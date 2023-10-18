@@ -44,7 +44,7 @@ export class UserComponent implements OnInit {
     }
 
     navigateToAddUser(){
-      this.router.navigate(['user/user-add'])
+      this.router.navigate(['user/add'])
     }
   
 
@@ -78,7 +78,7 @@ export class UserComponent implements OnInit {
   }
     
   editUser(id: number) {
-    this.router.navigate(['/user/user-edit/',id]);
+    this.router.navigate(['/user/edit/',id]);
   }
    
 }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CommonService } from '@src/app/shared_services/common.service';
 
 
@@ -19,7 +19,7 @@ export class UserDetailsComponent {
       dateOfBirth:'',
   }
 
-constructor(private route:ActivatedRoute,private service:CommonService){}
+constructor(private route:ActivatedRoute,private service:CommonService,private router: Router){}
 
 ngOnInit() {
   this.userDetails ={
@@ -33,4 +33,8 @@ ngOnInit() {
   this.service.GetCurrentData(this.route.snapshot.params.id).subscribe((result) => {  
     this.user = result;  })
 }
+
+  goToUser(){
+    this.router.navigate(['user']);
+  }
 }

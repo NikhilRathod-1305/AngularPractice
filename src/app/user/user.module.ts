@@ -20,7 +20,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { RouterLink } from '@angular/router';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { MatCardModule } from '@angular/material/card';
-
+import { AppRoutingModule } from '../app-routing.module';
+import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,9 @@ import { MatCardModule } from '@angular/material/card';
     MatButtonModule,
     MatToolbarModule,
     RouterLink,
-    MatCardModule
+    MatCardModule,
+    AppRoutingModule,
+    MatIconModule
   ]
 })
 export class UserModule { }

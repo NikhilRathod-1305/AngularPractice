@@ -1,14 +1,19 @@
-<app-top-nav></app-top-nav>
+<div>
+  <router-outlet></router-outlet>
+  </div>
+  <app-top-nav></app-top-nav>
 <div class="formDiv">
 <form [formGroup]="userAdd"(ngSubmit)="onSubmit()"  class="userForm">
   <mat-form-field>
-    <input matInput placeholder="userName" formControlName="userName" appForbiddenNumbers>
+    <input matInput formControlName="userName" autocomplete="off" appForbiddenNumbers>
+    <mat-label >UserName</mat-label>
     <mat-error *ngIf="userAdd.get('userName').hasError('required')">Username is required</mat-error>
     <mat-error *ngIf="userAdd.get('userName').hasError('invalidName')">Invalid username</mat-error>
   </mat-form-field>
 
   <mat-form-field >
-    <input matInput placeholder="Email" formControlName="email">
+    <input matInput  formControlName="email" autocomplete="off">
+    <mat-label>Email</mat-label>
     <mat-error *ngIf="userAdd.get('email').hasError('required')">Email is required</mat-error>
     <mat-error *ngIf="userAdd.get('email').hasError('email')">Invalid email</mat-error>
     <mat-error *ngIf="userAdd.get('email').hasError('invalidEmail')">Invalid email</mat-error>
@@ -16,29 +21,31 @@
 
   <mat-form-field>
     <mat-label>Gender</mat-label>
-    <mat-select formControlName="gender">
-      <mat-option value="male">Male</mat-option>
-      <mat-option value="female">Female</mat-option>
+    <mat-select formControlName="gender" autocomplete="off" required="">
+      <mat-option value="Male">Male</mat-option>
+      <mat-option value="Female">Female</mat-option>
     </mat-select>
   </mat-form-field>
 
   <mat-form-field>
-    <input matInput placeholder="Phone Number" formControlName="phoneNumber" appForbiddenAlphabets>
+    <input matInput formControlName="phoneNumber" autocomplete="off" appForbiddenAlphabets>
+    <mat-label>Phone Number</mat-label>
     <mat-error *ngIf="userAdd.get('phoneNumber').hasError('required')">phone number is required</mat-error>
     <mat-error *ngIf="userAdd.get('phoneNumber').hasError('invalidPhone')">Invalid phone number</mat-error>
   </mat-form-field>
 
  <mat-form-field>
-  <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth">
+  <input matInput [matDatepicker]="picker" formControlName="dateOfBirth" autocomplete="off" [max]="maxDate">
+  <mat-label>Date of Birth</mat-label>
   <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   <mat-datepicker #picker></mat-datepicker>
   <mat-error *ngIf="userAdd.get('dateOfBirth').hasError('required')">Date of Birth is required</mat-error>
   <mat-error *ngIf="userAdd.get('dateOfBirth').hasError('invalidDateOfBirth')">Invalid Date of Birth</mat-error>
 </mat-form-field>  
 
-
-
-
-  <button mat-raised-button color="primary" type="submit">Submit</button>
+  <div class="buttons">
+  <button mat-raised-button color="primary" type="submit" [disabled]="userAdd.invalid">Submit</button>
+  <button mat-raised-button color="warn" type="button" (click)="resetForm()" [disabled]="isFormEmpty">Reset</button>
+  </div>
 </form>
 </div>

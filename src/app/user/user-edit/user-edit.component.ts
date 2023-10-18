@@ -37,14 +37,19 @@ export class UserEditComponent  implements OnInit{
         email: ['', [Validators.required, ValidationService.invalidEmail]],
         gender: [''],
         phoneNumber: ['', [Validators.required, ValidationService.invalidPhone]],
-        dateOfBirth: ['', [Validators.required, ValidationService.invalidDateOfBirth]],
+        dateOfBirth: ['', [Validators.required]],
       });
+      this.maxDate=new Date;
   
-      // Fetch the user data and set it in the form
-      this.service.GetCurrentData(this.router.snapshot.params.id).subscribe((result) => {
+      const id = this.router.snapshot.params.id;
+    this.service.GetCurrentData(id).subscribe((result) => {
+      if (result) {
         this.userEdit.patchValue(result); // Set the user data in the form
-      });
-    }
+      } else {
+        this.router1.navigate(['user']); // Redirect to user list if user doesn't exist
+      }
+    });
+  }
 
   UpdateForm(){
     if(this.userEdit.valid){

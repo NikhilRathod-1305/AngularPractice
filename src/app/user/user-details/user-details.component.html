@@ -10,7 +10,6 @@
       <p><strong>Gender:</strong> {{ user.gender }}</p>
       <p><strong>Phone Number:</strong> {{ user.phoneNumber }}</p>
       <p><strong>Date of Birth:</strong> {{ user.dateOfBirth | date: 'MM/dd/yyyy' }}</p>
-      <!-- Include other user details as needed -->
     </mat-card-content>
   </mat-card>
-  
+<button mat-raised-button color="primary" type="button" (click)="goToUser()">Go back</button>

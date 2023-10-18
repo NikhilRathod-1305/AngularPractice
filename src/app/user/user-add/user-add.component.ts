@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 import { ValidationService } from '@src/app/shared_services/validator.service';
 import { CommonService } from '@src/app/shared_services/common.service';
 import Swal from 'sweetalert2';
+import { max } from 'rxjs';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class UserAddComponent implements OnInit {
   userAdd: FormGroup;
   userId: number = 0;
   maxDate: Date;
+  isFormEmpty: boolean = true;
 
   constructor(
     private fb: FormBuilder,
@@ -29,11 +31,16 @@ export class UserAddComponent implements OnInit {
       gender: [''],
       phoneNumber: ['', [Validators.required, ValidationService.invalidPhone]],
       dateOfBirth: ['', Validators.required],
-      // skillLevel: [''],
-      // hobbies: this.fb.array([]), // Add this for hobbies
+    });
+    this.maxDate=new Date;  
+    this.userAdd.valueChanges.subscribe(() => {
+      this.isFormEmpty = this.isFormEmptyCheck();
     });
   }
-
+  isFormEmptyCheck(): boolean {
+    const formValue = this.userAdd.getRawValue(); // Get the form's current value
+    return !Object.values(formValue).some(value => !!value);
+  }
   onSubmit() {
   console.log(this.userAdd.value);
   if(this.userAdd.valid){
@@ -50,4 +57,8 @@ export class UserAddComponent implements OnInit {
     console.log(data);
     })
   }}
+  resetForm() {
+    this.userAdd.reset(); // Reset the form to its initial state
+    this.isFormEmpty = true;
+  }
 }

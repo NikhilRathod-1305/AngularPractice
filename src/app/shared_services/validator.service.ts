@@ -1,43 +1,53 @@
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 
 export class ValidationService {
-  validateName: ValidatorFn;
   static invalidName(control: AbstractControl): ValidationErrors | null {
-    const regex = /^[a-zA-Z ]+$/; 
-    const valid = regex.test(control.value);
-
-    return valid ? null : { invalidName: true };
+    let trimmedValue = control.value ? control.value.replace(/[^A-Za-z\s]/g, '') : '';
+    
+    if (trimmedValue.length > 30) {
+      trimmedValue = trimmedValue.substring(0, 30);
+      control.setValue(trimmedValue);
+    }
+  
+    const regex = /^[a-zA-Z\s]{1,30}$/; // Allow 1 to 30 letters and spaces
+    const valid = regex.test(trimmedValue);
+  
+    if (valid) {
+      const nameArray = trimmedValue.split(' ');
+      const capitalizedArray = nameArray.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase());
+      const capitalizedValue = capitalizedArray.join(' ');
+  
+      if (capitalizedValue !== control.value) {
+        control.setValue(capitalizedValue);
+      }
+  
+      return null;
+    } else {
+      return { invalidName: true };
+    }
   }
-
   static invalidEmail(control: AbstractControl): ValidationErrors | null {
-    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/; 
-    const valid = regex.test(control.value);
+    const trimmedValue = control.value ? control.value.trim() : '';
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    const valid = regex.test(trimmedValue);
 
     return valid ? null : { invalidEmail: true };
   }
 
   static invalidPhone(control: AbstractControl): ValidationErrors | null {
-    const regex = /^[0-9]{10}$/; 
-    const valid = regex.test(control.value);
-
+    let trimmedValue = control.value ? control.value.replace(/\s/g, '') : ''; // Remove spaces
+  
+    // Trim to 10 digits if it's longer
+    if (trimmedValue.length > 10) {
+      trimmedValue = trimmedValue.substring(0, 10);
+      control.setValue(trimmedValue);
+    }
+  
+    const regex = /^[0-9]{10}$/; // Enforce exactly 10 digits
+    const valid = regex.test(trimmedValue);
+  
     return valid ? null : { invalidPhone: true };
   }
-
-  static invalidDateOfBirth(control: AbstractControl): ValidationErrors | null {
-    const dateOfBirth = new Date(control.value);
-    const currentDate = new Date();
-    const minDate = new Date('1900-01-01'); 
-    const maxDate = new Date('2030-01-01'); 
-
-    if (isNaN(dateOfBirth.getTime())) {
-      // Invalid date
-      return { invalidDateOfBirth: true };
-    }
-
-    if (dateOfBirth < minDate || dateOfBirth > maxDate) {
-      return { invalidDateOfBirth: true };
-    }
-
-    return null;
-  }
+  
+  
 }

@@ -13,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { RouterModule } from '@angular/router';
+import { UserRoutingModule } from './user/user-routing.module';
 
 
 @NgModule({
@@ -33,7 +35,8 @@ import { MatCardModule } from '@angular/material/card';
             MatToolbarModule,
             AppRoutingModule, 
             MatButtonModule,
-            MatCardModule
+            MatCardModule,
+            UserRoutingModule
           ],
   providers: [],
   bootstrap: [AppComponent],
