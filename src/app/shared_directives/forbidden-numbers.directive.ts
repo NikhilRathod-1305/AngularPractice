@@ -10,9 +10,9 @@ export class ForbiddenNumbersDirective {
   @HostListener('input', ['$event']) onInput(event: any): void {
     const initialValue = this.el.nativeElement.value;
     const sanitizedValue = initialValue.replace(/[^A-Za-z]/g, ''); // Allow only alphabetic characters and spaces
-    if (sanitizedValue.length !== 30) {
+    if (sanitizedValue.length !== 25) {
 
-      this.el.nativeElement.value = sanitizedValue.slice(0, 30); // Truncate if longer
+      this.el.nativeElement.value = sanitizedValue.slice(0, 25); // Truncate if longer
     } else if (initialValue !== sanitizedValue) {
       this.el.nativeElement.value = sanitizedValue;
       event.preventDefault();
