@@ -18,129 +18,33 @@
       "userName": "Nikhil",
       "email": "nikhil@gmail.com",
       "gender": "Male",
-      "phoneNumber": "1234567012",
-      "dateOfBirth": "2023-10-17T18:30:00.000Z",
-      "id": 9
-    },
-    {
-      "userName": "nikhil",
-      "email": "nikhilrathod@gmail.com",
-      "gender": "Male",
-      "phoneNumber": "1234567890",
-      "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 10
-    },
-    {
-      "userName": "Shreyas",
-      "email": "shreyas@gmial.com",
-      "gender": "Male",
-      "phoneNumber": "0123456789",
-      "dateOfBirth": "2023-10-01T18:30:00.000Z",
-      "id": 11
-    },
-    {
-      "userName": "Asdasdasdadsas",
-      "email": "sda@gmail.com",
-      "gender": "Male",
-      "phoneNumber": "1234566789",
-      "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 12
-    },
-    {
-      "userName": "Nikhil Rathod",
-      "email": "nikhil@gmail.com",
-      "gender": "Male",
-      "phoneNumber": "1234567890",
-      "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 13
-    },
-    {
-      "userName": "Nikhil",
-      "email": "nikhilrathod@gmail.com",
-      "gender": "Male",
-      "phoneNumber": "1213213234",
-      "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 14
-    },
-    {
-      "userName": "Asdasd",
-      "email": "sdaas@gac..cc",
-      "gender": "Male",
-      "phoneNumber": "2321312323",
-      "dateOfBirth": "2023-10-02T18:30:00.000Z",
-      "id": 17
-    },
-    {
-      "userName": "Nikhilr",
-      "email": "nikhilrAthod@gmial.co",
-      "gender": "Male",
-      "phoneNumber": "1231231231",
-      "dateOfBirth": "2023-10-01T18:30:00.000Z",
-      "id": 18
-    },
-    {
-      "userName": "Nikhilrathod",
-      "email": "rosewdoonikhil@g.com",
-      "gender": "Male",
-      "phoneNumber": "1234789011",
-      "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 19
+      "phoneNumber": "6366318338",
+      "dateOfBirth": "2000-05-12T18:30:00.000Z",
+      "id": 1
     },
     {
       "userName": "Shreyas",
       "email": "shreyas@gmail.com",
       "gender": "Male",
-      "phoneNumber": "8779456123",
+      "phoneNumber": "7098127381",
       "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 21
-    },
-    {
-      "userName": "Nikhilrathod ",
-      "email": "nikhilrathod@gmial.comm",
-      "gender": "Male",
-      "phoneNumber": "1234567890",
-      "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 22
-    },
-    {
-      "userName": "Asdasasdasdsadasdsadsadsadasda",
-      "email": "mojasda2@fma.com",
-      "gender": "Male",
-      "phoneNumber": "9071097318",
-      "dateOfBirth": "2023-10-17T18:30:00.000Z",
-      "id": 23
-    },
-    {
-      "userName": "Sadjahsdjkashdlkjashdljka",
-      "email": "kjasdh@gmailc.pm.com",
-      "gender": "Male",
-      "phoneNumber": "1234567890",
-      "dateOfBirth": "2023-10-17T18:30:00.000Z",
-      "id": 24
-    },
-    {
-      "userName": "Nikhil",
-      "email": "nikhil@gmail.com",
-      "gender": "Male",
-      "phoneNumber": "6890121313",
-      "dateOfBirth": "2023-10-17T18:30:00.000Z",
-      "id": 25
+      "id": 2
     },
     {
       "userName": "Saurab",
       "email": "saurab@gmail.com",
       "gender": "Male",
-      "phoneNumber": "2345671928",
-      "dateOfBirth": "2023-10-17T18:30:00.000Z",
-      "id": 26
+      "phoneNumber": "7676318516",
+      "dateOfBirth": "2001-03-05T18:30:00.000Z",
+      "id": 4
     },
     {
-      "userName": "Sadasdasdasdasdasdasdasda",
-      "email": "asdasdasdasd@dsada.gmao",
-      "gender": "Male",
-      "phoneNumber": "2312312312",
-      "dateOfBirth": "2023-09-30T18:30:00.000Z",
-      "id": 27
+      "userName": "Sahana",
+      "email": "sahana@gmail.com",
+      "gender": "Female",
+      "phoneNumber": "7671829380",
+      "dateOfBirth": "2002-01-21T18:30:00.000Z",
+      "id": 5
     }
   ],
   "profile": {

@@ -1,13 +1,17 @@
 <div>
   <router-outlet></router-outlet>
   </div>
-  <app-top-nav [title]="pageTitle"></app-top-nav>
-<div class="formDiv">
+  <app-top-nav [title]="pageTitle" (newItemEvent)="addItem($event)">
+    {{ items }}
+  </app-top-nav>
+  <app-alert *ngIf="showAlert" [message]="alertMessage" [alertType]="alertType"></app-alert>
+
+  <div class="formDiv">
 <form [formGroup]="userAdd"(ngSubmit)="onSubmit()"  class="userForm">
   <mat-form-field>
     <input matInput formControlName="userName" autocomplete="off" appForbiddenNumbers>
     <mat-label >UserName</mat-label>
-    <mat-error *ngIf="userAdd.get('userName').hasError('required')">Username is required</mat-error>
+    <mat-error *ngIf="userAdd.controls.userName.hasError('required')">Username is required</mat-error>
     <mat-error *ngIf="userAdd.get('userName').hasError('invalidName')">Invalid username</mat-error>
   </mat-form-field>
 
@@ -15,7 +19,7 @@
     <input matInput  formControlName="email" autocomplete="off">
     <mat-label>Email</mat-label>
     <mat-error *ngIf="userAdd.get('email').hasError('required')">Email is required</mat-error>
-    <mat-error *ngIf="userAdd.get('email').hasError('email')">Invalid email</mat-error>
+    <!-- <mat-error *ngIf="userAdd.get('email').hasError('email')">Invalid email</mat-error> -->
     <mat-error *ngIf="userAdd.get('email').hasError('invalidEmail')">Invalid email</mat-error>
   </mat-form-field>
 
@@ -44,7 +48,7 @@
 </mat-form-field>  
 
   <div class="buttons">
-  <button mat-raised-button color="primary" type="submit" [disabled]="userAdd.invalid">Submit</button>
+  <button mat-raised-button color="primary" type="submit" [disabled]="userAdd.invalid" >Submit</button>
   <button mat-raised-button color="warn" type="button" (click)="resetForm()" [disabled]="isFormEmpty">Reset</button>
   </div>
 </form>

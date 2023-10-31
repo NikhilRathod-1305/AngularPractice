@@ -16,14 +16,12 @@ import { MatCardModule } from '@angular/material/card';
 import { RouterModule } from '@angular/router';
 import { UserRoutingModule } from './user/user-routing.module';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     PracticeComponent,
     Practice2Component,
     Practice3Component,
-    
   ],
   imports: [BrowserModule,
             AppRoutingModule, 
@@ -36,7 +34,8 @@ import { UserRoutingModule } from './user/user-routing.module';
             AppRoutingModule, 
             MatButtonModule,
             MatCardModule,
-            UserRoutingModule
+            UserRoutingModule,
+            
           ],
   providers: [],
   bootstrap: [AppComponent],

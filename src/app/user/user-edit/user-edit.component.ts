@@ -1,10 +1,11 @@
 import { Component, OnInit  } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AlertComponent } from '@src/app/common_components/alert/alert.component';
 import { CommonService } from '@src/app/shared_services/common.service';
 import { ValidationService } from '@src/app/shared_services/validator.service';
 import Swal from 'sweetalert2';
-
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-user-edit',
@@ -15,6 +16,15 @@ export class UserEditComponent  implements OnInit{
   pageTitle:string="EDIT USER";
   userId: number = 0;
   maxDate: Date;
+  alertMessage: string;
+  alertType: string; // 'success' or 'error'
+  showAlert: boolean =false
+  
+  items=[];
+
+  addItem(newItem:string){
+    this.items.push(newItem);
+  }
 
   alert:boolean =false; 
   userEdit=new FormGroup({
@@ -28,7 +38,8 @@ export class UserEditComponent  implements OnInit{
     private fb: FormBuilder,
     private router: ActivatedRoute, 
     private router1: Router, 
-    private service:CommonService
+    private service:CommonService,
+    private dialog: MatDialog
     ) {}
     
   
@@ -48,7 +59,7 @@ export class UserEditComponent  implements OnInit{
       if (result) {
         this.userEdit.patchValue(result); // Set the user data in the form
       } else {
-        this.router1.navigate(['user']); // Redirect to user list if user doesn't exist
+        this.router1.navigate(['users']); // Redirect to user list if user doesn't exist
       }
     });
   }
@@ -56,16 +67,25 @@ export class UserEditComponent  implements OnInit{
   UpdateForm(){
     if(this.userEdit.valid){
     this.service.UpdateForm(this.router.snapshot.params.id,this.userEdit.value).subscribe((result)=>{
-      console.log(result,"data updated successfull");
-      Swal.fire({
-        position: 'top',
-        icon: 'success',
-        title: 'User Edited',
-        showConfirmButton: false,
-        timer: 1600
-      });
-        this.router1.navigate(['user']);
-      });
+      
+        const dialogRef = this.dialog.open(AlertComponent, {
+          width: '250px',
+          data: { title: 'Success', message: 'User Edited' }
+        });
+
+        dialogRef.afterClosed().subscribe(() => {
+          this.userEdit.reset();
+          this.router1.navigate(['users']); // Redirect to the 'users' route
+          
+        });
+      },
+      (error) => {
+        const dialogRef = this.dialog.open(AlertComponent, {
+          width: '250px',
+          data: { title: 'Error', message: 'Error editing user' }
+        });
+      }
+    );
     
   }}
 }

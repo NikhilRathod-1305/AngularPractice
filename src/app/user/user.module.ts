@@ -12,7 +12,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { DateFormatPipe } from '@src/app/common_components/dateformatpipe/DateFormatPipe'; 
 import { ForbiddenAlphabetsDirective } from '@src/app/shared_directives/forbidden-alphabets.directive';
 import { ForbiddenNumbersDirective } from '@src/app/shared_directives/forbidden-numbers.directive';
 import { TopNavComponent } from '@src/app/common_components/top-nav/top-nav.component';
@@ -22,18 +21,20 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 import { MatCardModule } from '@angular/material/card';
 import { AppRoutingModule } from '../app-routing.module';
 import {MatIconModule} from '@angular/material/icon';
+import { AlertComponent } from '../common_components/alert/alert.component';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 @NgModule({
   declarations: [
     UserAddComponent,
     UserEditComponent,
     UserComponent,
-    DateFormatPipe,
     ForbiddenNumbersDirective,
     ForbiddenAlphabetsDirective,
     TopNavComponent,
     UserDetailsComponent,
-
+    AlertComponent
   ],
   exports:[
     UserAddComponent,
@@ -55,7 +56,8 @@ import {MatIconModule} from '@angular/material/icon';
     RouterLink,
     MatCardModule,
     AppRoutingModule,
-    MatIconModule
+    MatIconModule,
+    MatDialogModule
   ]
 })
 export class UserModule { }

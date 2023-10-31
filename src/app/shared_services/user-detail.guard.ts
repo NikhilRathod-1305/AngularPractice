@@ -14,17 +14,17 @@ export class UserDetailGuard implements CanActivate {
     const id = route.paramMap.get('id');
 
     if (!id || isNaN(Number(id))) {
-       this.router.createUrlTree(['user']); // Invalid or missing ID
+       this.router.createUrlTree(['users']); // Invalid or missing ID
     }
 
     return this.commonService.GetCurrentData(id).pipe(
-      map((user) => {
-        if (!user) {
-          return this.router.createUrlTree(['user']); // User with the specified ID doesn't exist
+      map((users) => {
+        if (!users) {
+          return this.router.createUrlTree(['users']); // User with the specified ID doesn't exist
         }
         return true; // User with the specified ID exists
       }),
-      catchError(async () => this.router.createUrlTree(['user'])) // Handle errors
+      catchError(async () => this.router.createUrlTree(['users'])) // Handle errors
     );
   }
 }

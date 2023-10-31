@@ -1,8 +1,6 @@
-<app-top-nav [title]="pageTitle"></app-top-nav>
+<app-top-nav [title]="pageTitle" (newItemEvent)="addItem($event)">
+  {{ items }}</app-top-nav>
 <mat-card class="user-card">
-    <!-- <mat-card-header>
-      <mat-card-title>User Details</mat-card-title>
-    </mat-card-header> -->
     <mat-card-content>
       <p><strong>ID:</strong> {{ user.id }}</p>
       <p><strong>Name:</strong> {{ user.userName }}</p>
@@ -12,4 +10,4 @@
       <p><strong>Date of Birth:</strong> {{ user.dateOfBirth | date: 'MM/dd/yyyy' }}</p>
     </mat-card-content>
   </mat-card>
-<button mat-raised-button color="primary" type="button" (click)="goToUser()">Go back</button>
+<button mat-raised-button color="primary" type="button" [routerLink]="['/users']">Go back</button>

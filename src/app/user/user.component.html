@@ -1,4 +1,5 @@
-<app-top-nav [title]="pageTitle"></app-top-nav>
+<app-top-nav [title]="pageTitle" (newItemEvent)="addItem($event)">
+  {{ items }}</app-top-nav>
 <div class="noUsers" *ngIf="noUsersPresent; else usersList">
   <p>No users are currently added.</p>
   <button mat-raised-button color="primary" (click)="navigateToAddUser()">Add User</button>
@@ -22,11 +23,11 @@
       <strong>Phone no:</strong> {{ item.phoneNumber }}
     </div>
     <div class="card-content">
-      <strong>date of birth:</strong> {{ item.dateOfBirth | dateFormat: 'ddMMyyyy' }}
+      <strong>date of birth:</strong> {{ item.dateOfBirth | date: 'MMM dd YYYY' }}
     </div>
     <div class="card-buttons" [ngClass]="{ 'visible': item.hovered }">
       <button (click)="editUser(item.id); ;$event.stopPropagation()">Edit</button>
-      <button (click)="Popup(item.id);$event.stopPropagation()">Delete</button>
+      <button (click)="openDeleteConfirmationDialog(item.id);$event.stopPropagation()">Delete</button>
     </div>
   </div>
 </div>

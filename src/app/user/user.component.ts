@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { UserInterface } from '@src/app/user-interface';
 import { Router } from '@angular/router';
 import { CommonService } from '@src/app/shared_services/common.service';
+import { MatDialog } from '@angular/material/dialog';
+import { AlertComponent } from '../common_components/alert/alert.component';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -10,76 +11,82 @@ import Swal from 'sweetalert2';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  pageTitle:string = "USERS LIST";
+  pageTitle: string = "USERS LIST";
   users: any;
-  selectedUser: any;
   noUsersPresent: boolean = false;
-  showOptions = false;
+  items=[];
 
-  edit() {
-    console.log('Edit clicked');
-  }
-
-  delete() {
-    console.log('Delete clicked');
+  addItem(newItem:string){
+    this.items.push(newItem);
   }
 
   constructor(
-    private router: Router, 
-    private service: CommonService) {}
+    private router: Router,
+    private service: CommonService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     this.GetAllUsers();
-    }
+  }
 
-    showUserDetails(id: number) {
-      this.router.navigate(['user/',id ]);
-    }    
+  showUserDetails(id: number) {
+    this.router.navigate(['users/', id]);
+  }
 
-    GetAllUsers(){
-      this.service.GetAllUsers().subscribe(data=>{
-        console.log('users',data);
-        this.users = data;
-        this.noUsersPresent = this.users.length === 0;
+  GetAllUsers() {
+    this.service.GetAllUsers().subscribe(data => {
+      console.log('users', data);
+      this.users = data;
+      this.noUsersPresent = this.users.length === 0;
     })
-    }
+  }
 
-    navigateToAddUser(){
-      this.router.navigate(['user/add'])
-    }
+  navigateToAddUser() {
+    this.router.navigate(['users/add'])
+  }
+
+  openDeleteConfirmationDialog(ID: any) {
+    const dialogRef = this.dialog.open(AlertComponent, {
+      data: {
+        title: 'Delete Confirmation',
+        message: `Are you sure you want to delete the user with ID: ${ID}?`,
+        isDelete: true, // Pass the isDelete property
+      },
+    });
   
-
-    Popup(ID:any){
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You want to delete the user with ID:"+ ID,
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-      }).then((result) => {
-        if (result.isConfirmed) {
-          this.DeleteUserByID(ID)
-        }
-      })
-    }
-
-    DeleteUserByID(ID:any){
-      this.service.DeleteUserbyID(ID).subscribe(data=>{
-        Swal.fire(
-          'Deleted!',
-          'User with ID:'+ID+' is deleted',
-          'success'
-        ).then(() => { setTimeout(() => {
-          window.location.reload();
-        }, 100);
-      });
+    dialogRef.afterClosed().subscribe(result => {
+      if (result === true) {
+        this.DeleteUserByID(ID);
+      }
     });
   }
-    
-  editUser(id: number) {
-    this.router.navigate(['/user/edit/',id]);
+  
+
+  DeleteUserByID(ID:any){
+    this.service.DeleteUserbyID(ID).subscribe(data=>{
+      const dialogRef = this.dialog.open(AlertComponent, {
+        data: {
+          title: 'Deletion Successful',
+          message: `User with ID: ${ID} have been deleted`,
+        },
+      });
+      dialogRef.afterClosed().subscribe(result => {
+      setTimeout(() => {
+          window.location.reload();
+        }, 100);
+  });
+ 
+})
   }
-   
+
+
+// .then(() => { setTimeout(() => {
+//   window.location.reload();
+// }, 100);
+
+
+  editUser(id: number) {
+    this.router.navigate(['users/edit/', id]);
+  }
 }

@@ -19,7 +19,11 @@ export class UserDetailsComponent {
       phoneNumber:'',
       dateOfBirth:'',
   }
+  items=[];
 
+  addItem(newItem:string){
+    this.items.push(newItem);
+  }
 constructor(private route:ActivatedRoute,private service:CommonService,private router: Router){}
 
 ngOnInit() {
@@ -36,6 +40,6 @@ ngOnInit() {
 }
 
   goToUser(){
-    this.router.navigate(['user']);
+    this.router.navigate(['users']);
   }
 }
