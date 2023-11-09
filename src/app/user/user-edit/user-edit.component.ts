@@ -1,4 +1,4 @@
-import { Component, OnInit  } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild  } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AlertComponent } from '@src/app/common_components/alert/alert.component';
@@ -6,14 +6,23 @@ import { CommonService } from '@src/app/shared_services/common.service';
 import { ValidationService } from '@src/app/shared_services/validator.service';
 import Swal from 'sweetalert2';
 import { MatDialog } from '@angular/material/dialog';
+import { TopNavComponent } from '@src/app/common_components/top-nav/top-nav.component';
 
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
   styleUrls: ['./user-edit.component.scss']
 })
-export class UserEditComponent  implements OnInit{
-  pageTitle:string="EDIT USER";
+export class UserEditComponent  implements OnInit, AfterViewInit{
+
+  @ViewChild ('title') private PageTitle : TopNavComponent;
+
+  ngAfterViewInit(){
+    this.PageTitle.title="EDIT USER"
+  }
+
+
+  // pageTitle:string="EDIT USER";
   userId: number = 0;
   maxDate: Date;
   alertMessage: string;

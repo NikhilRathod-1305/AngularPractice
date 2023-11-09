@@ -1,4 +1,4 @@
-<app-top-nav [title]="pageTitle"(newItemEvent)="addItem($event)">
+<app-top-nav #title (newItemEvent)="addItem($event)">
   {{ items }}</app-top-nav>
 <div class="formDiv">
 <form [formGroup]="userEdit" (ngSubmit)="UpdateForm()" class="userForm">

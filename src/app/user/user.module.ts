@@ -23,6 +23,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import {MatIconModule} from '@angular/material/icon';
 import { AlertComponent } from '../common_components/alert/alert.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { NgxSkeletonLoaderComponent, NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 
 @NgModule({
@@ -57,7 +58,9 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatCardModule,
     AppRoutingModule,
     MatIconModule,
-    MatDialogModule
+    MatDialogModule,
+    NgxSkeletonLoaderModule,
+    
   ]
 })
 export class UserModule { }

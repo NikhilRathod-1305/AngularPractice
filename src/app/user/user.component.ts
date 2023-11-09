@@ -3,7 +3,6 @@ import { Router } from '@angular/router';
 import { CommonService } from '@src/app/shared_services/common.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AlertComponent } from '../common_components/alert/alert.component';
-import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-user',
@@ -15,7 +14,8 @@ export class UserComponent implements OnInit {
   users: any;
   noUsersPresent: boolean = false;
   items=[];
-
+  skeletonLinesCount :number = 4 ;
+  
   addItem(newItem:string){
     this.items.push(newItem);
   }
@@ -30,6 +30,8 @@ export class UserComponent implements OnInit {
     this.GetAllUsers();
   }
 
+  
+
   showUserDetails(id: number) {
     this.router.navigate(['users/', id]);
   }
@@ -39,8 +41,12 @@ export class UserComponent implements OnInit {
       console.log('users', data);
       this.users = data;
       this.noUsersPresent = this.users.length === 0;
+      this.skeletonLinesCount = this.users.length;
+
     })
   }
+
+  
 
   navigateToAddUser() {
     this.router.navigate(['users/add'])
@@ -79,12 +85,6 @@ export class UserComponent implements OnInit {
  
 })
   }
-
-
-// .then(() => { setTimeout(() => {
-//   window.location.reload();
-// }, 100);
-
 
   editUser(id: number) {
     this.router.navigate(['users/edit/', id]);

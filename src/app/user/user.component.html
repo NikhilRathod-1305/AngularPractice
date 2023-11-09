@@ -1,38 +1,52 @@
 <app-top-nav [title]="pageTitle" (newItemEvent)="addItem($event)">
-  {{ items }}</app-top-nav>
+  {{ items }}
+</app-top-nav>
 <div class="noUsers" *ngIf="noUsersPresent; else usersList">
   <p>No users are currently added.</p>
   <button mat-raised-button color="primary" (click)="navigateToAddUser()">Add User</button>
 </div>
 <ng-template #usersList>
-<div class="user-card-container">
-  <div *ngFor="let item of users; let i = index" class="user-card" (mouseenter)="item.hovered = true" (mouseleave)="item.hovered = false" (click)="showUserDetails(item.id)">
-    <div class="card-content">
-      <strong>ID:</strong> {{ item.id }}
-    </div>
-    <div class="card-content">
-      <strong>Name:</strong>  {{ item.userName }}
-    </div>
-    <div class="card-content">
-      <strong>email:</strong> {{ item.email }}
-    </div>
-    <div class="card-content">
-      <strong>gender:</strong> {{ item.gender }}
-    </div>
-    <div class="card-content">
-      <strong>Phone no:</strong> {{ item.phoneNumber }}
-    </div>
-    <div class="card-content">
-      <strong>date of birth:</strong> {{ item.dateOfBirth | date: 'MMM dd YYYY' }}
-    </div>
-    <div class="card-buttons" [ngClass]="{ 'visible': item.hovered }">
-      <button (click)="editUser(item.id); ;$event.stopPropagation()">Edit</button>
-      <button (click)="openDeleteConfirmationDialog(item.id);$event.stopPropagation()">Delete</button>
+  <div class="user-card-container">
+    <div *ngFor="let item of users; let i = index" class="user-card" (mouseenter)="item.hovered = true" (mouseleave)="item.hovered = false" (click)="showUserDetails(item.id)">
+      <!-- Card content goes here -->
+      <div class="card-content">
+        <strong>ID:</strong> {{ item.id }}
+      </div>
+      <div class="card-content">
+        <strong>Name:</strong> {{ item.userName }}
+      </div>
+      <div class="card-content">
+        <strong>Email:</strong> {{ item.email }}
+      </div>
+      <div class="card-content">
+        <strong>Gender:</strong> {{ item.gender }}
+      </div>
+      <div class="card-content">
+        <strong>Phone no:</strong> {{ item.phoneNumber }}
+      </div>
+      <div class="card-content">
+        <strong>Date of birth:</strong> {{ item.dateOfBirth | date: 'MMM dd yyyy' }}
+      </div>
+      <!-- End of Card content -->
+
+      <div class="card-buttons" [ngClass]="{ 'visible': item.hovered }">
+        <button (click)="editUser(item.id); $event.stopPropagation()">Edit</button>
+        <button (click)="openDeleteConfirmationDialog(item.id); $event.stopPropagation()">Delete</button>
+      </div>
     </div>
   </div>
-</div>
 </ng-template>
-
-
-
-
+<!-- Skeleton Loader -->
+<div class="user-card-container" *ngIf="!users && skeletonLinesCount > 0">
+  <div *ngFor="let _ of [].constructor(skeletonLinesCount); let i = index" class="user-card">
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+    <div class="skeleton-line"></div>
+  </div>
+</div>
